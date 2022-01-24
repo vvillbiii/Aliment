@@ -11,7 +11,8 @@
     <a href="/restaurants">All Restaurants</a>
     <a href="/restaurants/new">New Restaurants</a>
     <h1>Edit <%= Restaurant.name %></h1>
-    <form action="/restaurants" method="post">
+
+    <form action="/restaurants/<%= Restaurant._id %>?_method=Put" method="post">
       <label for="name">Name</label>
       <input
         type="text"
