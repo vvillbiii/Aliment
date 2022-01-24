@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit <%= Restaurant.name %></title>
+  </head>
+  <body>
+    <a href="/">Homepage</a>
+    <a href="/restaurants">All Restaurants</a>
+    <a href="/restaurants/new">New Restaurants</a>
+    <h1>Edit <%= Restaurant.name %></h1>
+    <form action="/restaurants" method="post">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="<%= Restaurant.name %>"
+      />
+      <div>
+        <label for="address">Address</label>
+        <br />
+        <label for="address">Street Address</label>
+        <input
+          type="text"
+          name="address.street"
+          id="address"
+          placeholder="<%= Restaurant.street %>"
+        />
+        <label for="address">City</label>
+        <input
+          type="text"
+          name="address.city"
+          id="address"
+          placeholder="<%= Restaurant.city %>"
+        />
+        <label for="address">State</label>
+        <input
+          type="text"
+          name="address.state"
+          id="address"
+          placeholder="<%= Restaurant.state %>"
+        />
+      </div>
+      <label for="number">Number</label>
+      <input
+        type="number"
+        name="number"
+        id="number"
+        placeholder="<%= Restaurant.number %>"
+      />
+      <label for="image">Image</label>
+      <input type="text" name="image" id="image" />
+      <label for="price">Price</label>
+      <input type="range" min="1" max="5" name="price" id="price" />
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

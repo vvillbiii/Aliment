@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/">Homepage</a>
+    <a href="/restaurants">All Restaurants</a>
+    <a href="/restaurants/new">New Restaurants</a>
+    <h1><%= Restaurant.name%></h1>
+    <div>
+      <p><%= Restaurant.number %></p>
+      <p><%= Restaurant.address.street %></p>
+      <p><%= Restaurant.address.city %>, <%= Restaurant.address.state %></p>
+    </div>
+    <img src="<%= Restaurant.image%>" alt="<%= Restaurant.name%>" />
+    <br />
+    <a href="/restaurants/<%= Restaurant._id%>/edit">Edit Restaurant Details</a>
+    <form
+      action="/restaurants/<%= Restaurant._id%>?_method=Delete"
+      method="post"
+    >
+      <button>Out Of Business</button>
+    </form>
+  </body>
+</html>

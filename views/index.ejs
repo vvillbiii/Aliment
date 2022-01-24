@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/">Homepage</a>
+    <a href="/restaurants">All Restaurants</a>
+    <a href="/restaurants/new">New Restaurants</a>
+    <h1>All Restaurants in New York City</h1>
+    <% for(let r of Restaurant){ %>
+    <img src="<%= r.image %>" alt="<%= r.name %>" />
+    <h3><%= r.name %></h3>
+    <div>
+      <p><%= r.address.street %></p>
+      <p><%= r.address.city %>, <%= r.address.state %></p>
+    </div>
+    <p><%= r.price %></p>
+    <a href="/restaurants/<%= r._id %>">View Restaurant Details</a>
+    <% }%>
+  </body>
+</html>

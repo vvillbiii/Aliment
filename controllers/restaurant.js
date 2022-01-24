@@ -1,0 +1,48 @@
+const express = require("express");
+const router = express.Router();
+const { Restaurant } = require("../models");
+
+router.get("/", (req, res) => {
+  Restaurant.find({}, (error, foundRestaurants) => {
+    if (error) console.log(error);
+
+    const context = { Restaurant: foundRestaurants };
+    res.render("index", context);
+  });
+});
+
+router.get("/new", (req, res) => {
+  res.render("newres");
+});
+
+router.post("/", (req, res) => {
+  const body = req.body;
+  Restaurant.create(body, (error, newRestaurant) => {
+    if (error) return console.log(error);
+
+    console.log(newRestaurant);
+    res.redirect("/restaurants");
+  });
+});
+
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  Restaurant.findById(id, (error, foundRestaurant) => {
+    if (error) console.log(error);
+
+    const context = { Restaurant: foundRestaurant };
+    res.render("restaurant", context);
+  });
+});
+
+router.get("/:id/edit", (req, res) => {
+  const id = req.params.id;
+  Restaurant.findById(id, (error, foundRestaurant) => {
+    if (error) console.log(error);
+
+    const context = { Restaurant: foundRestaurant };
+    res.render("edit", context);
+  });
+});
+
+module.exports = router;
