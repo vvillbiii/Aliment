@@ -20,7 +20,6 @@ router.post("/", (req, res) => {
   Restaurant.create(body, (error, newRestaurant) => {
     if (error) return console.log(error);
 
-    console.log(newRestaurant);
     res.redirect("/restaurants");
   });
 });
