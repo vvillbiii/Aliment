@@ -17,6 +17,21 @@
       <p><%= Restaurant.address.city %>, <%= Restaurant.address.state %></p>
     </div>
     <img src="<%= Restaurant.image%>" alt="<%= Restaurant.name%>" />
+    <h3>Reviews</h3>
+    <form action="">
+      <label for="rating">Rating</label>
+      <input type="range" min="1" max="5" name="rating" id="rating" />
+      <br />
+      <div>
+        <label for="review">Reviews</label>
+        <br />
+        <textarea name="review" id="review" cols="30" rows="10"></textarea>
+      </div>
+      <button>Submit</button>
+    </form>
+    <p>here is a review</p>
+    <p>another review</p>
+    <p>one more review</p>
     <br />
     <a href="/restaurants/<%= Restaurant._id%>/edit">Edit Restaurant Details</a>
     <form

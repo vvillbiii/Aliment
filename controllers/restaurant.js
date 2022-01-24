@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Restaurant } = require("../models");
+const { Restaurant, User, Review } = require("../models");
 
 router.get("/", (req, res) => {
   Restaurant.find({}, (error, foundRestaurants) => {
@@ -34,6 +34,17 @@ router.get("/:id", (req, res) => {
   });
 });
 
+router.put("/:id", (req, res) => {
+  const id = req.params.id;
+  const body = req.body;
+  Restaurant.findByIdAndUpdate(id, body, (error, updateRestaurant) => {
+    if (error) console.log(error);
+
+    console.log(updateRestaurant);
+    res.redirect(`/restaurants/${updateRestaurant._id}`);
+  });
+});
+
 router.get("/:id/edit", (req, res) => {
   const id = req.params.id;
   Restaurant.findById(id, (error, foundRestaurant) => {
@@ -41,6 +52,16 @@ router.get("/:id/edit", (req, res) => {
 
     const context = { Restaurant: foundRestaurant };
     res.render("edit", context);
+  });
+});
+
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  Restaurant.findByIdAndDelete(id, (error, deleteRestaurant) => {
+    if (error) console.log(error);
+
+    console.log(deleteRestaurant);
+    res.redirect("/restaurants");
   });
 });
 
