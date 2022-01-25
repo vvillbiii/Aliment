@@ -11,6 +11,7 @@ const restaurantSchema = new Schema({
   number: { type: Number, required: true },
   image: { type: String, required: true },
   price: { type: Number, min: 1, max: 5, required: true },
+  description: { type: String, required: true },
   review: [{ type: mongoose.Schema.Types.ObjectId, ref: "Review" }],
 });
 
