@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Restaurant, User, Review } = require("../models");
+const { Restaurant } = require("../models");
 
 router.get("/", (req, res) => {
   Restaurant.find({}, (error, foundRestaurants) => {
@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
     res.render("index", context);
   });
 });
+
 
 router.get("/new", (req, res) => {
   res.render("newres");
