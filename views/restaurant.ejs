@@ -16,12 +16,8 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="text-center">
-        <a href="/">Homepage</a>
-        <a href="/restaurants">All Restaurants</a>
-        <a href="/restaurants/new">New Restaurants</a>
-        <a href="/users/new">Make an Account</a>
-      </div>
+    <!-- Navbar section -->
+    <%- include('../views/partials/navbar') %>
     <h1 class="text-center"><%= Restaurant.name%></h1>
     <div class='container'>
         <div class="row align-items-center">
