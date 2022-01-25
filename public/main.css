@@ -1,0 +1,23 @@
+.card {
+  flex-direction: row;
+  margin: 15px auto;
+}
+.card img {
+  width: 30%;
+}
+
+.miniheader {
+  background-color: rgb(133, 133, 133);
+  height: 100px;
+  color: white;
+}
+
+.restaurant-image {
+  width: 1200px;
+  height: 700px;
+}
+
+.review-image {
+  width: 1200px;
+  height: 800px;
+}
