@@ -10,21 +10,26 @@
     <!-- Navbar section -->
     <%- include('../views/partials/navbar') %>
     <h1>login to Your Account</h1>
-    <form action="">
-      <label for="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="youremail@email.com"
-      />
-      <label for="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="********"
-      />
-    </form>
+    <div class="container">
+      <form action="/users/<%= User._id %>" method="post">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="youremail@email.com"
+          class="form-control"
+        />
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="********"
+          class="form-control"
+        />
+        <button class="btn btn-success">Log in</button>
+      </form>
+    </div>
   </body>
 </html>

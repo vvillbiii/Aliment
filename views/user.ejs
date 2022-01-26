@@ -9,10 +9,18 @@
   <body>
     <!-- Navbar section -->
     <%- include('../views/partials/navbar') %>
-    <h1>Hi, User</h1>
-    <h2>Did eat someplace new?</h2>
-    <a href="/restaurants/new"><button>Add New Restaurant</button></a>
-    <button>Delete Account</button>
+    <div class="container">
+      <img src="<%= User.image %>" alt="<%= User.username %>" />
+      <h1>Hi, <%= User.username %></h1>
+      <h2>Did eat someplace new?</h2>
+      <a href="/restaurants/new"><button>Add New Restaurant</button></a>
+      <a href="/users/<%= User._id%>/edit"
+        ><button class="btn btn-primary">Update Profile</button></a
+      >
+      <form action="/users/<%= User._id%>?_method=Delete" method="post">
+        <button class="btn btn-danger">Delete Account</button>
+      </form>
+    </div>
     <h2>Your Reviews?</h2>
   </body>
 </html>

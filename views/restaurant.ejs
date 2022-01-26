@@ -112,7 +112,7 @@
         <div class="col-md-3 mt-4">
             <h3>Add Review</h3>
             <div class="mb-3">
-                <form action="">
+                <form action="/restaurants/<%= Restaurant._id %>/reviews" method="post">
             
               <label for="rating" class="form-label">Rating(1-5 scale)</label>
               <input
