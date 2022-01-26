@@ -42,8 +42,29 @@
           <p><%= Restaurant.description %></p>
           <h3><%= Restaurant.name%> Reviews</h3>
           <hr>
+          <% for(let review of Review){ %>
           <div class="card">
             <img
+              src="https://imageio.forbes.com/specials-images/imageserve/61688aa1d4a8658c3f4d8640/Antonio-Juliano/0x0.jpg?fit=bounds&format=jpg&width=960"
+              class="card-img"
+              alt=""
+            />
+              <div class="card-body">
+                <p>
+                  <%= review.rating %> <p>
+                  </p>
+                </p>
+                <p>
+                  <%= review.body %>
+                </p>
+                <p>
+                  <%= review.date %>
+                </p>
+              </div>
+            </div>
+            <% } %>
+            <div class="card">
+              <img
               src="https://imageio.forbes.com/specials-images/imageserve/61688aa1d4a8658c3f4d8640/Antonio-Juliano/0x0.jpg?fit=bounds&format=jpg&width=960"
               class="card-img"
               alt=""
@@ -112,9 +133,9 @@
         <div class="col-md-3 mt-4">
             <h3>Add Review</h3>
             <div class="mb-3">
-                <form action="/restaurants/<%= Restaurant._id %>/reviews" method="post">
+                <form action="/restaurants/<%= Restaurant._id %>" method="post">
             
-              <label for="rating" class="form-label">Rating(1-5 scale)</label>
+              <label for="rating" class="form-label">Rating (1-5 scale)</label>
               <input
                 type="range"
                 min="1"
@@ -128,13 +149,15 @@
             <div class="mb-3">
               <label for="review" class="form-label">Write Review</label>
               <textarea
-                name="review"
+                name="body"
                 id="review"
                 cols="30"
                 rows="10"
                 class="form-control"
               ></textarea>
             </div>
+            <label for="restaurant" hidden></label>
+            <input type="text" name="restaurant" id="restaurant" value="<%= Restaurant._id %>" hidden>
             <button class="btn btn-success">Submit Review</button>
           </form>
         </div>
