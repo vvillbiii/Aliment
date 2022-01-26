@@ -94,6 +94,18 @@
           id="price"
           class="form-control"
         />
+        <label for="description" class="form-label"
+          ><strong>Description of Restaurant</strong></label
+        >
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          class="form-control"
+        >
+<%= Restaurant.description %></textarea
+        >
         <button class="btn btn-warning">Submit</button>
       </form>
       <a href="/restaurants/<%= Restaurant._id %>"
