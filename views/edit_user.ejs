@@ -22,7 +22,7 @@
 
     <div class="container">
       <form
-        action="/users/<%= User._id %>?_method=Edit"
+        action="/users/<%= User._id %>?_method=Put"
         method="post"
         class="row g-3"
       >
@@ -30,9 +30,9 @@
           ><strong> User Name </strong></label>
         <input
           type="text"
-          name="name"
+          name="username"
           id="name"
-          placeholder="<%= User.name %>"
+          placeholder="<%= User.username %>"
           class="form-control"
         />
 
@@ -43,7 +43,7 @@
           <input
             type="text"
             name="email"
-            id="user"
+            id="email"
             placeholder="<%= User.email %>"
             class="form-control"
           />
@@ -54,7 +54,7 @@
             type="text"
             name="password"
             id="password"
-            placeholder="<%= Password %>"
+            placeholder="<%= User.password %>"
             class="form-control"
           />
         </div>
@@ -63,15 +63,15 @@
           <input
             type="text"
             name="image"
-            id="photo"
-            placeholder="<%= Image %>"
+            id="image"
+            placeholder="<%= User.image %>"
             class="form-control"
           />
         </div>
         <button class="btn btn-warning">Submit</button>
       </form>
-      <a href="/user/<%= User._id %>"
-        >Back to <%= User.name %>
+      <a href="/users/<%= User._id %>"
+        >Back to <%= User.username %>
       </a>
     </div>
   </body>
