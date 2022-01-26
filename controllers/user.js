@@ -12,15 +12,15 @@ router.get("/", (req, res) => {
   });
   
   
-    router.get("/new", (req, res) => {
+    router.get("/register", (req, res) => {
     res.render("newuser.ejs");
   });
-  router.post("/new", async function(req, res) {
+  router.post("/register", async function(req, res) {
       try{
           const foundUser = await User.exists({ email: req.body.email});
           if(foundUser) {
               console.log("The account already exists");
-              return res.send(`you made new user`);
+              return res.redirect("/login");
           }
           const salt = await bcrypt.genSalt(12);
           const hash = await bcrypt.hash(req.body.password, salt);
@@ -50,26 +50,26 @@ router.get("/", (req, res) => {
             username: foundUser.username,
         };
         console.log(req.session.currentUser);
-        return res.send(`you made new user`);
+        return res.redirect("/login");
       } catch (error) {
           console.log(error);
           res.send(error);
       }
   });
 
-//   router.get("/logout", async function (req, res) {
-//     try {
+  router.get("/logout", async function (req, res) {
+    try {
         
-//         await req.session.destroy();
-//         return res.redirect("/login");
+        await req.session.destroy();
+        return res.redirect("/login");
 
-//     } catch (error) {
-//         console.log(error);
-//         return res.send(error);
-//     }
-// });
+    } catch (error) {
+        console.log(error);
+        return res.send(error);
+    }
+});
 
-  router.post("/", (req, res) => {
+  router.post("/create", (req, res) => {
     const body = req.body;
     User.create(body, (error, newUser) => {
         if (error) return console.log(error);
