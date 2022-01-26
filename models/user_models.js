@@ -23,7 +23,11 @@ const userSchema = new mongoose.Schema(
         image: {
             type: String,
             require: [true, " Please upload your photo."]
-        }
+        },
+        //relationship to User
+        review: {
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: "Review",},
     },
     {
         timestamps: true,
