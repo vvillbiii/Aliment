@@ -3,13 +3,13 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { User } = require("../models");
 
-router.get("/", (req, res) => {
-    User.find({}, (error, foundUser) => {
-        if (error) console.log(error);
-        const context = { User: foundUser };
-        res.render("user.ejs", context);
-    });
-  });
+// router.get("/", (req, res) => {
+//     User.find({}, (error, foundUser) => {
+//         if (error) console.log(error);
+//         const context = { User: foundUser };
+//         res.render("user.ejs", context);
+//     });
+//   });
   
   
     router.get("/register", (req, res) => {
@@ -50,13 +50,22 @@ router.get("/", (req, res) => {
             username: foundUser.username,
         };
         console.log(req.session.currentUser);
-        return res.redirect("/login");
+        return res.redirect(`users/${foundUser._id}`);
       } catch (error) {
           console.log(error);
           res.send(error);
       }
   });
 
+  router.get("/users/:id", async function (req, res) {
+    const id = req.params.id;
+    User.findById(id, (error, foundUser) => {
+      if (error) console.log(error);
+  
+      const context = { User: foundUser };
+      res.render("user", context);
+    });
+  });
   router.get("/logout", async function (req, res) {
     try {
         
