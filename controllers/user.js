@@ -96,7 +96,7 @@ const { User } = require("../models");
     });
   });
   
-  router.put("/:userId", (req, res) => {
+  router.put("/users/:id", (req, res) => {
     const id = req.params.id;
     const body = req.body;
     User.findByIdAndUpdate(id, body, (error, updateUser) => {
@@ -107,23 +107,23 @@ const { User } = require("../models");
     });
   });
   
-  router.get("/:userId/edit", (req, res) => {
+  router.get("/users/:id/edit", (req, res) => {
     const id = req.params.id;
     User.findById(id, (error, foundUser) => {
       if (error) console.log(error);
   
       const context = { User: foundUser };
-      res.render("user.ejs", context);
+      res.render("edituser.ejs", context);
     });
   });
   
-  router.delete("/:userId", (req, res) => {
+  router.delete("/users/:id", (req, res) => {
     const id = req.params.id;
     User.findByIdAndDelete(id, (error, deleteUser) => {
       if (error) console.log(error);
   
       console.log(deleteUser);
-      res.redirect("/user");
+      res.redirect("/");
     });
   });
 
