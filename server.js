@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/restaurants", controllers.restaurant);
 app.use("/reviews", controllers.review);
-app.use("/users", controllers.user);
+app.use("/", controllers.user);
 
 app.get("/", (req, res) => {
   res.render("homepage");
