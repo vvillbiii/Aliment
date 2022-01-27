@@ -3,13 +3,13 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { User } = require("../models");
 
-router.get("/", (req, res) => {
-    User.find({}, (error, foundUser) => {
-        if (error) console.log(error);
-        const context = { User: foundUser };
-        res.render("user.ejs", context);
-    });
-  });
+// router.get("/", (req, res) => {
+//     User.find({}, (error, foundUser) => {
+//         if (error) console.log(error);
+//         const context = { User: foundUser };
+//         res.render("user.ejs", context);
+//     });
+//   });
   
   
     router.get("/register", (req, res) => {
@@ -105,7 +105,7 @@ router.get("/", (req, res) => {
       if (error) console.log(error);
   
       console.log(updateUser);
-      res.redirect(`/user/${updateUser._id}`);
+      res.redirect(`/users/${updateUser._id}`);
     });
   });
   

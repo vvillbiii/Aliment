@@ -23,7 +23,6 @@ router.post("/", (req, res) => {
     res.redirect(`/restaurants/${foundRestaurant._id}`);
 });
 
-
 // router.post("/:reviewsId", (req, res) => {
 //     const id = req.params.id;
 //     Review.create(id, (error, foundReview) => {
