@@ -3,13 +3,13 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { User } = require("../models");
 
-// router.get("/", (req, res) => {
-//     User.find({}, (error, foundUser) => {
-//         if (error) console.log(error);
-//         const context = { User: foundUser };
-//         res.render("user.ejs", context);
-//     });
-//   });
+router.get("/", (req, res) => {
+    User.find({}, (error, foundUser) => {
+        if (error) console.log(error);
+        const context = { User: foundUser };
+        res.render("user.ejs", context);
+    });
+  });
   
   
     router.get("/register", (req, res) => {
@@ -57,6 +57,19 @@ const { User } = require("../models");
       }
   });
 
+  
+  router.get("/users/:id/logout", async function (req, res) {
+    try {
+      
+      await req.session.destroy();
+      return res.redirect("/login");
+      
+    } catch (error) {
+      console.log(error);
+      return res.send(error);
+    }
+  });
+
   router.get("/users/:id", async function (req, res) {
     const id = req.params.id;
     User.findById(id, (error, foundUser) => {
@@ -66,17 +79,6 @@ const { User } = require("../models");
       res.render("user", context);
     });
   });
-  router.get("/logout", async function (req, res) {
-    try {
-        
-        await req.session.destroy();
-        return res.redirect("/login");
-
-    } catch (error) {
-        console.log(error);
-        return res.send(error);
-    }
-});
 
   router.post("/create", (req, res) => {
     const body = req.body;
@@ -113,9 +115,10 @@ const { User } = require("../models");
       if (error) console.log(error);
   
       const context = { User: foundUser };
-      res.render("edituser.ejs", context);
+      res.render("edit_user.ejs", context);
     });
   });
+
   
   router.delete("/users/:id", (req, res) => {
     const id = req.params.id;
