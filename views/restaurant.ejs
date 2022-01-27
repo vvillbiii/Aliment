@@ -18,7 +18,7 @@
   <body>
     <!-- Navbar section -->
     <%- include('../views/partials/navbar') %>
-    <h1 class="text-center"><%= Restaurant.name%></h1>
+    <h1 class="text-center"><%= Restaurant.name %></h1>
     <div class='container'>
         <div class="row align-items-center">
             <div class="col-2">
@@ -42,28 +42,33 @@
           <p><%= Restaurant.description %></p>
           <h3><%= Restaurant.name%> Reviews</h3>
           <hr>
-          <% for(let review of Review){ %>
-          <div class="card">
-            <img
-              src="https://imageio.forbes.com/specials-images/imageserve/61688aa1d4a8658c3f4d8640/Antonio-Juliano/0x0.jpg?fit=bounds&format=jpg&width=960"
-              class="card-img"
-              alt=""
-            />
-              <div class="card-body">
-                <p>
-                  <%= review.rating %> <p>
-                  </p>
-                </p>
-                <p>
-                  <%= review.body %>
-                </p>
-                <p>
-                  <%= review.date %>
-                </p>
-              </div>
-            </div>
-            <% } %>
-            <div class="card">
+      <% for(let i = 0; i < Review.length; i++){ %>
+
+        <div class="card">
+          <img
+          src="<%= Review[i].user %> "
+          class="card-img"
+          alt=""
+          />
+          <div class="card-body">
+            <p>
+              <small>
+                <strong><%= Review[i].user %> </strong>
+              </small>
+              <br>
+              <%= Review[i].rating %> 
+            </p>
+            <p>
+              <%= Review[i].body %>
+            </p>
+            <small>
+              <strong>Date of visit:</strong> <%= Review[i].date.toLocaleDateString() %>
+            </small>
+          </div>
+        </div>
+        <% } %>
+           
+            <!-- <div class="card">
               <img
               src="https://imageio.forbes.com/specials-images/imageserve/61688aa1d4a8658c3f4d8640/Antonio-Juliano/0x0.jpg?fit=bounds&format=jpg&width=960"
               class="card-img"
@@ -128,7 +133,7 @@
                 quis. Fusce tempor eros ut consequat rhoncus.
               </p>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="col-md-3 mt-4">
             <h3>Add Review</h3>
