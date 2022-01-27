@@ -30,6 +30,7 @@ app.use("/restaurants", controllers.restaurant);
 app.use("/reviews", controllers.review);
 app.use("/", controllers.user);
 
+
 app.get("/", (req, res) => {
   res.render("homepage");
 });

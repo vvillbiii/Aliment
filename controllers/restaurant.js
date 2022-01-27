@@ -2,110 +2,105 @@ const express = require("express");
 const router = express.Router();
 const { Restaurant, Review } = require("../models");
 
-router.get("/", (req, res) => {
-  Restaurant.find({}, (error, foundRestaurants) => {
-    if (error) {
-      console.log(error);
-    }
+router.get("/", async (req, res) => {
+  try {
+    const foundRestaurants = await Restaurant.find({});
     const context = { Restaurant: foundRestaurants };
     res.render("index", context);
-  });
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
 });
 
 router.get("/new", (req, res) => {
   res.render("newres");
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const body = req.body;
-  Restaurant.create(body, (error, newRestaurant) => {
-    if (error) return console.log(error);
-
+  try {
+    const newRestaurant = await Restaurant.create(body);
     res.redirect("/restaurants");
-  });
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", async (req, res, next) => {
   const id = req.params.id;
-  Restaurant.findById(id, (error, foundRestaurant) => {
-    if (error) {
-      console.log(error);
-      req.error = error;
-      return next();
-    }
-    // console.log(foundRestaurant.review);
-    Review.find({ restaurant: id }, (error, allReviews) => {
-      // console.log(allReviews);
-      const context = {
-        Restaurant: foundRestaurant,
-        Review: allReviews,
-      };
-      return res.render("restaurant", context);
-    });
-  });
+  try {
+    const foundRestaurant = await Restaurant.findById(id);
+    console.log(foundRestaurant);
+    const allReviews = await Review.find({ restaurant: id });
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+    console.log(allReviews);
+    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+    const context = {
+      Restaurant: foundRestaurant,
+      Review: allReviews,
+    };
+    return res.render("restaurant.ejs", context);
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", async (req, res) => {
   const id = req.params.id;
   const body = req.body;
-  Restaurant.findByIdAndUpdate(id, body, (error, updateRestaurant) => {
-    if (error) console.log(error);
-
-    console.log(updateRestaurant);
+  try {
+    const updateRestaurant = await Restaurant.findByIdAndUpdate(id, body);
     res.redirect(`/restaurants/${updateRestaurant._id}`);
-  });
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
 });
 
-router.get("/:id/edit", (req, res) => {
+router.get("/:id/edit", async (req, res) => {
   const id = req.params.id;
-  Restaurant.findById(id, (error, foundRestaurant) => {
-    if (error) console.log(error);
-
+  try {
+    const foundRestaurant = await Restaurant.findById(id);
     const context = { Restaurant: foundRestaurant };
     res.render("edit", context);
-  });
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
   const id = req.params.id;
-  Restaurant.findByIdAndDelete(id, (error, deleteRestaurant) => {
-    if (error) console.log(error);
-
-    console.log(deleteRestaurant);
+  try {
+    const deleteRestaurant = await Restaurant.findByIdAndDelete(id);
     res.redirect("/restaurants");
-  });
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
 });
 
-router.post("/:id", (req, res) => {
+router.post("/:id", async (req, res) => {
   const review = req.body;
   const id = req.params.id;
-
-  // console.log(Review);
-  // Review.create(review, (error, newReview) => {
-  //   if (error) return console.log(error);
-  //   newReview.restaurant = req.params.id;
-  //   console.log(newReview);
-  // });
-
-  // const newReview = new Review(review);
-  // // console.log(newReview);
-  Restaurant.findById(id, (error, foundRestaurant) => {
-    if (error) {
-      console.log(error);
-    }
-
-    Review.create(review, (error, newReview) => {
-      if (error) return console.log(error);
-
-      // review.restaurant = foundRestaurant._id;
-      // console.log(newReview);
-      // console.log(review);
-      // foundRestaurant.review.push(newReview);
-      // console.log(foundRestaurant.review);
-      // console.log(foundRestaurant);
-      res.redirect(`/restaurants/${foundRestaurant._id}`);
-    });
-  });
+  try {
+    const foundRestaurant = await Restaurant.findById(id);
+    const newReview = await Review.create(review);
+    res.redirect(`/restaurants/${foundRestaurant._id}`);
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
 });
 
 module.exports = router;

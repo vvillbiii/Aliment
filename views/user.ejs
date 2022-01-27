@@ -23,6 +23,9 @@
           <a href="/users/<%= User._id%>/edit"
             ><button class="btn btn-primary">Update Profile</button></a
           >
+          <a href="/users/<%= User._id%>/logout"
+          ><button class="btn btn-primary">Log Out</button></a
+          >
           <form action="/users/<%= User._id %>?_method=Delete" method="post">
             <button class="btn btn-danger">Delete Account</button>
           </form>
