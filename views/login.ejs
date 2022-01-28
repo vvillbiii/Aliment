@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- Head section -->
+ <%- include('../views/partials/head.ejs', { page: 'Login To Your Account' } ) %>
+  <body>
+    <!-- Navbar section -->
+    <%- include('../views/partials/navbar') %>
+    <h1 class="text-center">Login to Your Account</h1>
+    <div class="container">
+      <form action="/login" method="post">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="youremail@email.com"
+          class="form-control"
+        />
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="********"
+          class="form-control"
+        />
+        <button class="btn btn-success">Log in</button>
+      </form>
+    </div>
+  </body>
+</html>

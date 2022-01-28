@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head section -->
+  <%- include('../views/partials/head.ejs', { page: 'All Restaurants in New York City' } ) %>
+  <body>
+    <!-- Navbar section -->
+    <%- include('../views/partials/navbar') %>
+    <div class="container">
+      <div class="miniheader">
+        <h1 class="text-center">All Restaurants in New York City</h1>
+      </div>
+
+      <% for(let r of Restaurant){ %>
+      <div class="card">
+        <img src="<%= r.image %>" class="card-img" alt="<%= r.name %>" />
+        <div class="card-body">
+          <h3 class="card-title"><%= r.name %></h3>
+          <div>
+            <p>
+              <%= r.address.street %>, <%= r.address.city %>, <%=
+              r.address.state %>
+            </p>
+          </div>
+          <p><%= r.price %> $</p>
+          <a href="/restaurants/<%= r._id %>"
+            ><button class="btn btn-primary">View Restaurant Details</button></a
+          >
+        </div>
+      </div>
+      <% }%>
+    </div>
+    <!-- Share  -->
+  <%- include('../views/partials/share.ejs') %>
+  </body>
+</html>

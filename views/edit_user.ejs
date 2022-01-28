@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Head section -->
+<%- include('../views/partials/head.ejs', { page: 'Edit User Pofile' } ) %>
+  <body>
+    <!-- Navbar section -->
+    <%- include('../views/partials/navbar') %>
+    <h1 class="text-center">Edit <%= User.name %></h1>
+
+    <div class="container">
+      <form
+        action="/users/<%= User._id %>?_method=Put"
+        method="post"
+        class="row g-3"
+      >
+        <label for="name" class="form-label" 
+          ><strong> User Name </strong></label>
+        <input
+          type="text"
+          name="username"
+          id="name"
+          placeholder="<%= User.username %>"
+          class="form-control"
+        />
+
+        <div class="col-md-4">
+          <label for="email" class="form-label"
+            ><strong> Email </strong></label
+          >
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="<%= User.email %>"
+            class="form-control"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="password" class="form-label"><strong>Password</strong></label>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            placeholder="<%= User.password %>"
+            class="form-control"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="image" class="form-label"><strong>Your Photo</strong></label>
+          <input
+            type="text"
+            name="image"
+            id="image"
+            placeholder="<%= User.image %>"
+            class="form-control"
+          />
+        </div>
+        <button class="btn btn-warning">Submit</button>
+      </form>
+      <a href="/users/<%= User._id %>"
+        >Back to <%= User.username %>
+      </a>
+    </div>
+  </body>
+</html>

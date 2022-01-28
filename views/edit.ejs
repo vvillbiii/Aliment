@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head section -->
+  <%- include('../views/partials/head.ejs', { page: 'Edit Restaurant' } ) %>
+   
+  <body>
+    <!-- Navbar section -->
+    <%- include('../views/partials/navbar') %>
+    <h1 class="text-center">Edit <%= Restaurant.name %></h1>
+
+    <div class="container">
+      <form
+        action="/restaurants/<%= Restaurant._id %>?_method=Put"
+        method="post"
+        class="row g-3"
+      >
+        <label for="name" class="form-label"
+          ><strong> Restaurant Name </strong></label
+        >
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="<%= Restaurant.name %>"
+          class="form-control"
+        />
+
+        <div class="col-md-4">
+          <label for="address" class="form-label"
+            ><strong> Street Address </strong></label
+          >
+          <input
+            type="text"
+            name="address.street"
+            id="address"
+            placeholder="<%= Restaurant.address.street %>"
+            class="form-control"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="address" class="form-label"><strong>City</strong></label>
+          <input
+            type="text"
+            name="address.city"
+            id="address"
+            placeholder="<%= Restaurant.address.city %>"
+            class="form-control"
+          />
+        </div>
+        <div class="col-md-4">
+          <label for="address" class="form-label"><strong>State</strong></label>
+          <input
+            type="text"
+            name="address.state"
+            id="address"
+            placeholder="<%= Restaurant.address.state %>"
+            class="form-control"
+          />
+        </div>
+        <label for="number" class="form-label"
+          ><strong>Phone Number</strong></label
+        >
+        <input
+          type="number"
+          name="number"
+          id="number"
+          placeholder="<%= Restaurant.number %>"
+          class="form-control"
+        />
+        <label for="image" class="form-label"
+          ><strong>Image of Restaurant</strong></label
+        >
+        <input type="text" name="image" id="image" class="form-control" />
+        <label for="price" class="form-label"
+          ><strong> Price </strong>(1-5 scale)</label
+        >
+        <input
+          type="range"
+          min="1"
+          max="5"
+          name="price"
+          id="price"
+          class="form-control"
+        />
+        <label for="description" class="form-label"
+          ><strong>Description of Restaurant</strong></label
+        >
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          class="form-control"
+        >
+<%= Restaurant.description %></textarea
+        >
+        <button class="btn btn-warning">Submit</button>
+      </form>
+      <a href="/restaurants/<%= Restaurant._id %>"
+        >Back to <%= Restaurant.name %>
+      </a>
+    </div>
+  </body>
+</html>

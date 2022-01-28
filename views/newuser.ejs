@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head section -->
+  <%- include('../views/partials/head.ejs', { page: 'Sign Up' } ) %>
+  <body>
+    <!-- Navbar section -->
+    <%- include('../views/partials/navbar') %>
+    <h1 class="text-center">Sign up</h1>
+    <div class="container">
+      <form action="/register" method="post">
+        <label for="name" class="form-label"><strong>Username</strong></label>
+        <input
+          type="text"
+          name="username"
+          id="name"
+          placeholder="yourusername"
+          class="form-control"
+        />
+        <label for="email" class="form-label"><strong>Email</strong></label>
+        <input
+          type="text"
+          name="email"
+          id="email"
+          class="form-control"
+          placeholder="yourname@email.com"
+        />
+        <label for="password" class="form-label"
+          ><strong>Password</strong></label
+        >
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-control"
+          placeholder="********"
+        />
+        <label for="image" class="form-label"
+          ><strong>Profile Image</strong></label
+        >
+        <input type="text" name="image" id="image" class="form-control" />
+        <button class="btn btn-success">Sign up</button>
+      </form>
+    </div>
+  </body>
+</html>

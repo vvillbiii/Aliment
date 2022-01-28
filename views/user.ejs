@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head section -->
+  <%- include('../views/partials/head.ejs', { page: 'User Page' } ) %>
+  <body>
+    <!-- Navbar section -->
+    <%- include('../views/partials/navbar') %>
+    <div class="container mt-5">
+      <div class="row">
+        <img
+          src="<%= User.image %>"
+          class="col-md-6 profile-image"
+          alt="<%= User.username %>"
+        />
+        <div class="col-md-6">
+          <h1>Hi, <%= User.username %></h1>
+          <h2>Did eat someplace new?</h2>
+          <div class="btn-group">
+            <a href="/restaurants/new"
+              ><button class="btn btn-primary">Add New Restaurant</button></a
+            >
+          </div>
+          <a href="/users/<%= User._id%>/edit"
+            ><button class="btn btn-primary">Update Profile</button></a
+          >
+          <a href="/users/<%= User._id%>/logout"
+          ><button class="btn btn-primary">Log Out</button></a
+          >
+          <form action="/users/<%= User._id %>?_method=Delete" method="post">
+            <button class="btn btn-danger">Delete Account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

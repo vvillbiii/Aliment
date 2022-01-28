@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head section -->
+  <%- include('../views/partials/head.ejs', { page: 'Add New Restaurant' } ) %>
+  <body>
+    <!-- Navbar section -->
+    <%- include('../views/partials/navbar') %>
+    <h1 class="text-center">Add New Restaurant</h1>
+    <div class="container">
+
+    <form action="/restaurants" method="post" class="row g-3">
+      <label for="name" class="form-label"><strong>Restaurant Name</strong></label>
+      <input type="text" name="name" id="name"  class="form-control" placeholder="Il Corso"/>
+        <div class="col-md-4">
+          <label for="address" class="form-label"><strong>Street Address</strong></label>
+          <input type="text" name="address.street" id="address" class="form-control" placeholder="88-2 W 55th St" />
+        </div>
+        <div class="col-md-4">
+
+            <label for="address" class="form-label">
+                <strong>City</strong></label>
+            <input type="text" name="address.city" id="address" class="form-control" placeholder="New York"/>
+        </div>
+        <div class="col-md-4">
+
+            <label for="address" class="form-label"><strong>State</strong></label>
+            <input type="text" name="address.state" id="address" class="form-control" placeholder="NY" />
+        </div>
+      <label for="number" class="form-label"><strong>Phone Number</strong></label>
+      <input type="number" name="number" id="number" class="form-control" placeholder="2129571500" />
+      <label for="image" class="form-label"><strong>Image of Restaurant</strong></label>
+      <input type="text" name="image" id="image" class="form-control" />
+      <label for="price" class="form-label"><strong>
+          Price
+      </strong>(1-5 scale)</label>
+      <input type="range" min="1" max="5" name="price" id="price" class="form-control" />
+      <label for="description" class="form-label"
+          ><strong>Description of Restaurant</strong></label
+        >
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          class="form-control"
+        >
+Restaurant description goes here.</textarea
+        >
+      <button class="btn btn-success">Submit</button>
+    </form>
+</div>
+    </body>
+    </html>
