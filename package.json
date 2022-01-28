@@ -8,9 +8,11 @@
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^6.1.7",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "procfile": "^0.1.1"
   },
   "scripts": {
     "start": "nodemon server.js"
