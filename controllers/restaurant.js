@@ -81,6 +81,7 @@ router.delete("/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const deleteRestaurant = await Restaurant.findByIdAndDelete(id);
+    const deleteReview = await Review.deleteMany({ restaurant: id });
     res.redirect("/restaurants");
   } catch (error) {
     console.log(error);

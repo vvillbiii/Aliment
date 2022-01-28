@@ -6,11 +6,11 @@
   <body>
     <!-- Navbar section -->
     <%- include('../views/partials/navbar') %>
-    <div class="container">
-      <div class="miniheader">
-        <h1 class="text-center">All Restaurants in New York City</h1>
-      </div>
+    <div class="p-3 mb-2 akw text-white">
+      <h1 class="text-center">All Restaurants in New York City</h1>
+    </div>
 
+    <div class="container">
       <% for(let r of Restaurant){ %>
       <div class="card">
         <img src="<%= r.image %>" class="card-img" alt="<%= r.name %>" />
