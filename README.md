@@ -26,6 +26,9 @@ Website Pictures
 ![Firefox_preview](https://media.git.generalassemb.ly/user/40929/files/6f4b1b00-8043-11ec-96ab-b2e0acca34a2) - Homepage
 ![add new restaurant](https://media.git.generalassemb.ly/user/40929/files/75d99280-8043-11ec-9df8-e3a78fe877a6) - add new restaurant
 ![restaurant](https://media.git.generalassemb.ly/user/40929/files/a8838b00-8043-11ec-814a-367e0c2b1a4f) - restaurant
+![sign up page](https://media.git.generalassemb.ly/user/40929/files/bfc27880-8043-11ec-9c5f-52eaa141aa52) - sign up page
+
+
 
 
 
