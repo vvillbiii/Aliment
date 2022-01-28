@@ -41,22 +41,6 @@ h3 {
   width: 50%;
 }
 
-.miniheader {
-  background-color: #000;
-  height: 100px;
-  color: white;
-}
-
-/* .restaurant-image {
-  width: 1200px;
-  height: 700px;
-} */
-
-/* .homepage-image {
-  width: 1275px;
-  height: 700px;
-} */
-
 .profile-image {
   width: 40%;
 }
@@ -192,3 +176,7 @@ li a:active {
   border-color: white !important;
 
 } */
+
+.akw {
+  background-color: #000;
+}
