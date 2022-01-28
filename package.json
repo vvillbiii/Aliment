@@ -15,7 +15,7 @@
     "procfile": "^0.1.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "name": "project2",
   "description": "",
