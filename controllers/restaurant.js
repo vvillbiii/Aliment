@@ -103,4 +103,18 @@ router.post("/:id", async (req, res) => {
   }
 });
 
+router.delete("/:id/reviews/:reviewId", async (req, res) => {
+  const id = req.params.id;
+  const reviewId = req.params.reviewId;
+  try {
+    const foundRestaurant = await Restaurant.findById(id);
+    const deleteReview = await Review.findByIdAndDelete(reviewId);
+    res.redirect(`/restaurants/${foundRestaurant._id}`);
+  } catch (error) {
+    console.log(error);
+    req.error = error;
+    return next();
+  }
+});
+
 module.exports = router;

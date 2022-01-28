@@ -32,18 +32,18 @@
       <% for(let i = 0; i < Review.length; i++){ %>
 
         <div class="card">
-          <img
+          <!-- <img
           src="<%= Review[i].user %> "
           class="card-img"
           alt=""
-          />
+          /> -->
           <div class="card-body">
             <p>
               <small>
                 <strong><%= Review[i].user %> </strong>
               </small>
               <br>
-              <%= Review[i].rating %> 
+              <%= Review[i].rating %> stars
             </p>
             <p>
               <%= Review[i].body %>
@@ -51,76 +51,15 @@
             <small>
               <strong>Date of visit:</strong> <%= Review[i].date.toLocaleDateString() %>
             </small>
+            <form
+            action="/restaurants/<%= Restaurant._id%>/reviews/<%= Review[i]._id %>?_method=Delete"
+            method="post"
+          >
+            <button class="btn btn-danger btn-sm">Mark as Spam</button>
+          </form>
           </div>
         </div>
-        <% } %>
-           
-            <!-- <div class="card">
-              <img
-              src="https://imageio.forbes.com/specials-images/imageserve/61688aa1d4a8658c3f4d8640/Antonio-Juliano/0x0.jpg?fit=bounds&format=jpg&width=960"
-              class="card-img"
-              alt=""
-            />
-            <div class="card-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse fringilla leo massa. Maecenas diam mauris, venenatis
-                quis aliquet et, ultrices gravida erat. Sed id ullamcorper
-                metus, ac scelerisque urna.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="https://en.amerikanki.com/wp-content/uploads/2013/01/8-Ways-to-Be-a-Sincere-Person.jpg"
-              class="card-img"
-              alt=""
-            />
-            <div class="card-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse fringilla leo massa. Maecenas diam mauris, venenatis
-                quis aliquet et, ultrices gravida erat. Sed id ullamcorper
-                metus, ac scelerisque urna. Sed posuere orci et mauris pharetra
-                accumsan. Ut pellentesque metus enim, ut feugiat est tempus
-                quis. Fusce tempor eros ut consequat rhoncus.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZG-8Pk5VYr_MOP4Ks3uEeZdArTUAizNRwg&usqp=CAU"
-              class="card-img"
-              alt=""
-            />
-            <div class="card-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse fringilla leo massa. Maecenas diam mauris, venenatis
-                quis aliquet et, ultrices gravida erat. Sed id ullamcorper
-                metus, ac scelerisque urna. Sed posuere orci et mauris pharetra
-                accumsan. Ut pellentesque metus enim, ut feugiat est tempus
-                quis. Fusce tempor eros ut consequat rhoncus.
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="https://media.glamour.com/photos/5edfd7e7007c6d63d16a8f17/3:2/w_1196,h_797,c_limit/Black%20Women%20Self%20Care%202%20.jpg"
-              class="card-img"
-              alt=""
-            />
-            <div class="card-body">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse fringilla leo massa. Maecenas diam mauris, venenatis
-                quis aliquet et, ultrices gravida erat. Sed id ullamcorper
-                metus, ac scelerisque urna. Sed posuere orci et mauris pharetra
-                accumsan. Ut pellentesque metus enim, ut feugiat est tempus
-                quis. Fusce tempor eros ut consequat rhoncus.
-              </p>
-            </div>
-          </div> -->
+        <% } %>  
         </div>
         <div class="col-md-3 mt-4">
             <h3>Add Review</h3>
