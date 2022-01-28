@@ -19,3 +19,13 @@ Restaurants to Reviews: One ot Many
 
 We deployed our project on Heroku: 
 https://morning-falls-40233.herokuapp.com/
+
+
+Website Pictures
+![Chrome+Preview](https://media.git.generalassemb.ly/user/40929/files/622e2c00-8043-11ec-8569-de5f3fbdfdc4) - Homepage
+![Firefox_preview](https://media.git.generalassemb.ly/user/40929/files/6f4b1b00-8043-11ec-96ab-b2e0acca34a2) - Homepage
+![add new restaurant](https://media.git.generalassemb.ly/user/40929/files/75d99280-8043-11ec-9df8-e3a78fe877a6) - add new restaurant
+![restaurant](https://media.git.generalassemb.ly/user/40929/files/a8838b00-8043-11ec-814a-367e0c2b1a4f) - restaurant
+
+
+
