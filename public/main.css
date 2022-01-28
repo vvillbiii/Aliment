@@ -137,13 +137,18 @@ ul {
   margin: 0px 2px;
   cursor: pointer;
   border-radius: 6px;
+
 }
 
-/* .nav-link {
-  /* color: #ffffff; */
-/* }  */
+.nav-link {
+ color: #ffffff;
+ font-family: "Prata", "Helvetica Neue", Helvetica, Arial, serif;
+ /* letter-spacing: -.5pt; */
+ margin-left: 10px;
+ }
+
 /* margin: auto 5px;
-} */
+} */ 
 
 /*  NavBar End  */
 
